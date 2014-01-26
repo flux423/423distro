@@ -1,4 +1,4 @@
-423distro
-=========
+ecdpanopoly
+===========
 
-Drupal Distribution based on Pantheon's Panopoly Distro.
+ecdpanopoly
