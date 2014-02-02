@@ -5,7 +5,7 @@ base= panopoly
 ; Use Panopoly instead of Drupal core:
  projects[panopoly][type] = core
  projects[panopoly][download][type] = git
- projects[panopoly][download][url] = https://github.com/populist/panopoly-drops-7.git
+ projects[panopoly][download][url] = git://github.com/pantheon-systems/drops-7.git
  projects[panopoly][version] = master
  
 ; Pull in Custom Profile 423distro:
