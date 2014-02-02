@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * Implement hook_install().
+ *
+ */
+function pantheon_install() {
+  include_once DRUPAL_ROOT . '/profiles/pantheon/pantheon.install';
+  standard_install();
+}
