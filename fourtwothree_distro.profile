@@ -1,8 +1,8 @@
 <?php
 
-function distro423_install_tasks($install_state) {
+function fourtwothree_distro_install_tasks($install_state) {
   $tasks = array (
-    'distro423_configure' => array(),
+    'fourtwothree_distro_configure' => array(),
   );
   return $tasks;
 }
@@ -10,7 +10,7 @@ function distro423_install_tasks($install_state) {
 /**
  * Set up base config
  */
-function distro423_configure() {
+function fourtwothree_distro_configure() {
   // Set default Pantheon variables
   variable_set('cache', 1);
   variable_set('block_cache', 1);
@@ -33,12 +33,12 @@ function distro423_configure() {
 /**
  * Implements hook_install_tasks()
  */
-function distro423_install_tasks(&$install_state) {
+function fourtwothree_distro_install_tasks(&$install_state) {
 
   $tasks = array();
 
   // Add our custom CSS file for the installation process
-  drupal_add_css(drupal_get_path('profile', 'distro423') . '/install.css');
+  drupal_add_css(drupal_get_path('profile', 'fourtwothree_distro') . '/install.css');
 
   // Add the Panopoly app selection to the installation process
   //require_once(drupal_get_path('module', 'apps') . '/apps.profile.inc');
@@ -54,7 +54,7 @@ function distro423_install_tasks(&$install_state) {
 /**
  * Implements hook_install_tasks_alter()
  */
-function distro423_install_tasks_alter(&$tasks, $install_state) {
+function fourtwothree_distro_install_tasks_alter(&$tasks, $install_state) {
 
   // Magically go one level deeper in solving years of dependency problems
   require_once(drupal_get_path('module', 'panopoly_core') . '/panopoly_core.profile.inc');
@@ -72,7 +72,7 @@ function distro423_install_tasks_alter(&$tasks, $install_state) {
 /**
  * Implements hook_form_FORM_ID_alter()
  */
-function distro423_form_install_configure_form_alter(&$form, $form_state) {
+function fourtwothree_distro_form_install_configure_form_alter(&$form, $form_state) {
 
   // Hide some messages from various modules that are just too chatty.
   drupal_get_messages('status');
@@ -94,7 +94,7 @@ function distro423_form_install_configure_form_alter(&$form, $form_state) {
 /**
  * Implements hook_form_FORM_ID_alter()
  */
-function distro423_form_apps_profile_apps_select_form_alter(&$form, $form_state) {
+function fourtwothree_distro_form_apps_profile_apps_select_form_alter(&$form, $form_state) {
 
   // For some things there are no need
   $form['apps_message']['#access'] = FALSE;

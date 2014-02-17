@@ -1,4 +1,4 @@
-name = distro423
+name = fourtwothree_distro
 description = Install with EnergyCircle's pre-configured distribution tailored for contractors in the home efficiency industry.
 core = 7.x
 api = 2
@@ -55,6 +55,6 @@ dependencies[] = pantheon_login
 ; Information added by drupal.org packaging script on 2013-07-31
 version = "7.x-1.0-rc7"
 core = "7.x"
-project = "distro423"
+project = "fourtwothree_distro"
 datestamp = "1375308084"
 
