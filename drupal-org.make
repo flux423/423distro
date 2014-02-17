@@ -8,10 +8,10 @@ base= panopoly
  projects[panopoly][download][url] = git://github.com/pantheon-systems/drops-7.git
  projects[panopoly][version] = master
  
-; Pull in Custom Profile 423distro:
- projects[423distro][type] = profile
- projects[423distro][download][type] = git
- projects[423distro][download][url] = https://github.com/flux423/423distro.git
- projects[423distro][version] = master
+; Pull in Custom Profile distro423:
+ projects[distro423][type] = profile
+ projects[distro423][download][type] = git
+ projects[distro423][download][url] = https://github.com/flux423/distro423.git
+ projects[distro423][version] = master
 
 
