@@ -12,7 +12,7 @@ projects[panopoly_images][subdir] = panopoly
 projects[panopoly_theme][version] = 1.x
 projects[panopoly_theme][subdir] = panopoly
 
-projects[panopoly_magic][version] = 1.5x
+projects[panopoly_magic][version] = 1.x
 projects[panopoly_magic][subdir] = panopoly
 
 projects[panopoly_widgets][version] = 1.x

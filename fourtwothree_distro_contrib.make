@@ -18,13 +18,13 @@ projects[variable][subdir] = 423_contrib
 projects[field_formatter_settings][version] = 1.x
 projects[field_formatter_settings][subdir] = 423_contrib
 
-projects[entity2text][version] = 1.0-alpha1
+projects[entity2text][version] = 1.x
 projects[entity2text][subdir] = 423_contrib
 
-projects[entity_rules][version] = 1.0-alpha4
+projects[entity_rules][version] = 1.x
 projects[entity_rules][subdir] = 423_contrib
 
-projects[entityform][version] = 2.0-beta2
+projects[entityform][version] = 2.x
 projects[entityform][subdir] = 423_contrib
 
 projects[menu_icons][version] = 3.0-beta4
