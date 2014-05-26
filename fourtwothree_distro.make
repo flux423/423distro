@@ -2,7 +2,7 @@ api = 2
 core = 7.x
 
 ; Drupal Contrib Mods
-includes[] = drupal-org-release.make
+includes[] = panopoly.make
 
 
 ; Drupal Contrib Mods
