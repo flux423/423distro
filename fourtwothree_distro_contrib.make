@@ -152,3 +152,9 @@ projects[xmlsitemap][subdir] = 423_contrib
 ; Themes
 projects[adaptivetheme][version] = 3.x
 projects[adaptivetheme][type] = theme
+
+projects[at_423client][download][type] = git
+projects[at_423client][download][url] = https://github.com/flux423/at_423client.git
+projects[at_423client][directory_name] = sites/all/themes
+projects[at_423client][type] = theme
+
