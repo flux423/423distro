@@ -1,5 +1,5 @@
 name = 423distro
-description = Install with EnergyCircle's pre-configured distribution tailored for contractors in the home efficiency industry.
+description = 423distobution make of panopoly.
 core = 7.x
 api = 2
 exclusive = 1
