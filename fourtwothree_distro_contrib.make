@@ -6,11 +6,17 @@ core = 7.x
 projects[compact_forms][version] = 1.x
 projects[compact_forms][subdir] = 423_contrib
 
-projects[google_analytics][version] = 2.x-dev
+projects[google_analytics][version] = 2.x
 projects[google_analytics][subdir] = 423_contrib
 
 projects[email][version] = 1.x
 projects[email][subdir] = 423_contrib
+
+projects[variable][version] = 2.x
+projects[variable][subdir] = 423_contrib
+
+projects[field_formatter_settings][version] = 1.x
+projects[field_formatter_settings][subdir] = 423_contrib
 
 projects[entity2text][version] = 1.0-alpha1
 projects[entity2text][subdir] = 423_contrib

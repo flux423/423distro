@@ -20,6 +20,7 @@ dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = dblog
 dependencies[] = update
+dependencies[] = rdf
 
 ; Panopoly Foundation
 dependencies[] = panopoly_core
@@ -34,6 +35,12 @@ dependencies[] = panopoly_users
 dependencies[] = panopoly_pages
 dependencies[] = panopoly_search
 dependencies[] = panopoly_wysiwyg
+
+; Panopoly Contrib
+dependencies[] = panopoly_config
+dependencies[] = panopoly_seo
+dependencies[] = panopoly_news
+dependencies[] = panopoly_faq
 
 ; Panopoly Recommended - Admin & UI
 dependencies[] = navbar
@@ -53,7 +60,7 @@ dependencies[] = apps
 
 ; Contrib Depends
 dependencies[] = compact_forms
-dependencies[] = google_analytics
+dependencies[] = mini_panels
 dependencies[] = email
 dependencies[] = entity2text
 dependencies[] = entity_rules
