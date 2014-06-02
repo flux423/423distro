@@ -60,7 +60,7 @@ dependencies[] = apps
 
 ; Contrib Depends
 dependencies[] = compact_forms
-dependencies[] = mini_panels
+;dependencies[] = mini_panels
 dependencies[] = email
 dependencies[] = entity2text
 dependencies[] = entity_rules
