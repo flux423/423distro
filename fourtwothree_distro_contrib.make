@@ -27,9 +27,6 @@ projects[entity_rules][subdir] = 423_contrib
 projects[entityform][version] = 2.x
 projects[entityform][subdir] = 423_contrib
 
-projects[menu_icons][version] = 3.0-beta4
-projects[menu_icons][subdir] = 423_contrib
-
 projects[phone][version] = 1.x-dev
 projects[phone][subdir] = 423_contrib
 
