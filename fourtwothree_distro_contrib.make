@@ -105,8 +105,8 @@ projects[variable][subdir] = 423contrib
 projects[views_accordion][version] = 1.x
 projects[views_accordion][subdir] = 423contrib
 
-projects[views_url_path_arguments][version] = 1.x
-projects[views_url_path_arguments][subdir] = 423contrib
+;projects[views_url_path_arguments][version] = 1.x
+;projects[views_url_path_arguments][subdir] = 423contrib
 
 projects[weight][version] = 2.x
 projects[weight][subdir] = 423contrib
