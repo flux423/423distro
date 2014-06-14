@@ -90,6 +90,9 @@ projects[jcarousel][subdir] = 423contrib
 projects[maxlength][version] = 3.x
 projects[maxlength][subdir] = 423contrib
 
+projects[menu_icons][version] = 3.x
+projects[menu_icons][subdir] = 423contrib
+
 projects[phone][version] = 1.x-dev
 projects[phone][subdir] = 423contrib
 
