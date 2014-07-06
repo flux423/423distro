@@ -27,7 +27,7 @@ if [ -f drupal-org.make ]; then
   if [ $SELECTION = "1" ]; then
 
     echo "Building Panopoly install profile in release mode..."
-    drush make --no-core --no-gitinfofile --contrib-destination=/. drupal-org-release.make
+    drush make --no-core --no-gitinfofile --contrib-destination=/profiles. drupal-org-release.make
 
   elif [ $SELECTION = "2" ]; then
 
