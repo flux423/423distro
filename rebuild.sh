@@ -26,17 +26,17 @@ if [ -f drupal-org.make ]; then
 
   if [ $SELECTION = "1" ]; then
 
-    echo "Building Panopoly install profile in release mode..."
-    drush make --no-core --no-gitinfofile --contrib-destination=/profiles. drupal-org-release.make
+    echo "Building ECDPanopoly install profile in release mode..."
+    drush make --no-core --no-gitinfofile --contrib-destination=. drupal-org-release.make
 
   elif [ $SELECTION = "2" ]; then
 
-    echo "Building Panopoly install in development mode (latest dev code)..."
+    echo "Building ECDPanopoly install in development mode (latest dev code)..."
     drush make --no-core --no-gitinfofile --contrib-destination=. drupal-org.make
 
   elif [ $SELECTION = "3" ]; then
 
-    echo "Building Panopoly install profilein development mode (latest dev code with .git working-copy)"
+    echo "Building ECDPanopoly install profilein development mode (latest dev code with .git working-copy)"
     drush make --working-copy --no-core --no-gitinfofile --contrib-destination=. drupal-org-dev.make
 
   else
