@@ -21,7 +21,10 @@ projects[auto_menutitle][subdir] = 423contrib
 projects[better_exposed_filters][version] = 3.x
 projects[better_exposed_filters][subdir] = 423contrib
 
-projects[cer][version] = 2.x-dev
+projects[better_formats][version] = 1.x-dev
+projects[better_formats][subdir] = 423contrib
+
+projects[cer][version] = 3.0-alpha7
 projects[cer][subdir] = 423contrib
 
 projects[colorbox][version] = 2.6
@@ -72,6 +75,9 @@ projects[field_formatter_settings][subdir] = 423contrib
 projects[field_multiple_limit][version] = 1.x
 projects[field_multiple_limit][subdir] = 423contrib
 
+projects[field_hidden][version] = 1.6
+projects[field_hidden][subdir] = 423contrib
+
 projects[flexslider][version] = 1.x
 projects[flexslider][subdir] = 423contrib
 
@@ -83,6 +89,9 @@ projects[globalredirect][subdir] = 423contrib
 
 projects[insert_view][version] = 2.x
 projects[insert_view][subdir] = 423contrib
+
+projects[imagecache_token][version] = 1.x-dev
+projects[imagecache_token][subdir] = 423contrib
 
 projects[jcarousel][version] = 2.x
 projects[jcarousel][subdir] = 423contrib
@@ -96,8 +105,20 @@ projects[menu_icons][subdir] = 423contrib
 projects[phone][version] = 1.x-dev
 projects[phone][subdir] = 423contrib
 
+projects[metatag][version] = 1.4
+projects[metatag][subdir] = 423contrib
+
+projects[nodequeue][version] = 2.0-beta1
+projects[nodequeue][subdir] = 423contrib
+
+projects[redirect][version] = 1.0-rc1
+projects[redirect][subdir] = 423contrib
+
 projects[rules][version] = 2.x
 projects[rules][subdir] = 423contrib
+
+projects[superfish][version] = 1.x-dev
+projects[superfish][subdir] = 423contrib
 
 projects[title][version] = 1.x
 projects[title][subdir] = 423contrib
@@ -108,14 +129,29 @@ projects[variable][subdir] = 423contrib
 projects[views_accordion][version] = 1.x
 projects[views_accordion][subdir] = 423contrib
 
-;projects[views_url_path_arguments][version] = 1.x
-;projects[views_url_path_arguments][subdir] = 423contrib
-
 projects[weight][version] = 2.x
 projects[weight][subdir] = 423contrib
 
 projects[xmlsitemap][version] = 2.0
 projects[xmlsitemap][subdir] = 423contrib
+
+
+;Patches
+;from https://www.drupal.org/node/2225315
+projects[entity_rules][patch][] = "https://www.drupal.org/files/issues/entity_rules_entity_rules_get_form_entity_type_settings.patch" 
+
+;from https://www.drupal.org/node/2201263
+projects[entity_rules][patch][] = "https://www.drupal.org/files/issues/entity_rules_entity_rules_get_type_settings.patch" 
+
+;from
+projects[views][patch][] = "https://www.drupal.org/files/issues/views-asset-diff-2018737-37.patch"
+
+;from https://www.drupal.org/node/2163545
+projects[superfish][patch][2163545] = https://drupal.org/files/issues/superfish-drush_make_master-2163545-2.patch
+
+projects[defaultconfig][patch][] =
+"https://www.drupal.org/files/issues/1900574.defaultconfig.undefinedindex_13.patch"
+;https://www.drupal.org/node/1900574
 
 ; Themes
 projects[adaptivetheme][version] = 3.x
