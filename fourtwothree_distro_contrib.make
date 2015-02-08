@@ -24,10 +24,10 @@ projects[better_exposed_filters][subdir] = 423contrib
 projects[better_formats][version] = 1.x-dev
 projects[better_formats][subdir] = 423contrib
 
-projects[cer][version] = 3.0-alpha7
+projects[cer][version] = 3.x
 projects[cer][subdir] = 423contrib
 
-projects[colorbox][version] = 2.6
+projects[colorbox][version] = 2.x
 projects[colorbox][subdir] = 423contrib
 
 projects[compact_forms][version] = 1.x
@@ -75,7 +75,7 @@ projects[field_formatter_settings][subdir] = 423contrib
 projects[field_multiple_limit][version] = 1.x
 projects[field_multiple_limit][subdir] = 423contrib
 
-projects[field_hidden][version] = 1.6
+projects[field_hidden][version] = 1.x
 projects[field_hidden][subdir] = 423contrib
 
 projects[flexslider][version] = 1.x
@@ -105,7 +105,7 @@ projects[menu_icons][subdir] = 423contrib
 projects[phone][version] = 1.x-dev
 projects[phone][subdir] = 423contrib
 
-projects[metatag][version] = 1.4
+projects[metatag][version] = 1.x
 projects[metatag][subdir] = 423contrib
 
 projects[nodequeue][version] = 2.0-beta1
@@ -132,7 +132,7 @@ projects[views_accordion][subdir] = 423contrib
 projects[weight][version] = 2.x
 projects[weight][subdir] = 423contrib
 
-projects[xmlsitemap][version] = 2.0
+projects[xmlsitemap][version] = 2.x
 projects[xmlsitemap][subdir] = 423contrib
 
 
@@ -152,6 +152,9 @@ projects[superfish][patch][2163545] = https://drupal.org/files/issues/superfish-
 projects[defaultconfig][patch][] =
 "https://www.drupal.org/files/issues/1900574.defaultconfig.undefinedindex_13.patch"
 ;https://www.drupal.org/node/1900574
+
+projects[views][patch][] = https://www.drupal.org/files/views-fix-destination-link-for-ajax-1036962-29.patch
+;https://www.drupal.org/node/1036962#comment-6665274
 
 ; Themes
 projects[adaptivetheme][version] = 3.x
