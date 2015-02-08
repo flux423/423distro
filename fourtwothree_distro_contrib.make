@@ -105,9 +105,6 @@ projects[menu_icons][subdir] = 423contrib
 projects[phone][version] = 1.x-dev
 projects[phone][subdir] = 423contrib
 
-projects[metatag][version] = 1.x
-projects[metatag][subdir] = 423contrib
-
 projects[nodequeue][version] = 2.0-beta1
 projects[nodequeue][subdir] = 423contrib
 
