@@ -75,7 +75,7 @@ projects[field_formatter_settings][subdir] = 423contrib
 projects[field_multiple_limit][version] = 1.x
 projects[field_multiple_limit][subdir] = 423contrib
 
-projects[field_hidden][version] = 1.x
+projects[field_hidden][version] = 1.6
 projects[field_hidden][subdir] = 423contrib
 
 projects[flexslider][version] = 1.x
