@@ -1,15 +1,6 @@
 api = 2
 core = 7.x
 
-;panopoly add ons
-projects[panopoly_config][version] = 1.x
-projects[panopoly_config][subdir] = panopoly_custom
-
-projects[panopoly_seo][version] = 1.x
-projects[panopoly_seo][subdir] = panopoly_custom
-
-
-
 ;contrib mods
 
 projects[adminrole][version] = 1.x
