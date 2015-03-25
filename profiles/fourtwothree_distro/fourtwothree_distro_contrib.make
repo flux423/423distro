@@ -36,9 +36,6 @@ projects[disable_term_node_listings][subdir] = 423contrib
 projects[email][version] = 1.x
 projects[email][subdir] = 423contrib
 
-projects[entity2text][version] = 1.x
-projects[entity2text][subdir] = 423contrib-discontinue
-
 projects[entityform][version] = 2.x
 projects[entityform][subdir] = 423contrib
 
