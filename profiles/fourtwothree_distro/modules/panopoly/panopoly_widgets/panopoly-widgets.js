@@ -39,67 +39,60 @@ Drupal.settings.spotlight_settings = Drupal.settings.spotlight_settings || {};
  Drupal.behaviors.panopolySpotlight = {
    attach: function (context, settings) {
      if ($('.field-name-field-basic-spotlight-items').length) {
-       var rotation_time = Drupal.settings.spotlight_settings.rotation_time;
-       $('.field-name-field-basic-spotlight-items').tabs().tabs("rotate", rotation_time, true);
-       // $('.field-name-field-basic-spotlight-items').css('height', $('.field-name-field-basic-spotlight-items').height());
-       // $('.field-name-field-basic-spotlight-items').css('overflow', 'hidden');
+       $('.field-name-field-basic-spotlight-items').each(function() {
+         var rotation_time = $(this).find('.panopoly-spotlight-buttons-wrapper').data('rotation-time');
+         var $slides = $(this);
+         $slides.tabs().tabs("rotate", rotation_time, true);
+         var $controls = $slides.find('.ui-tabs-nav li');
+         // $('.field-name-field-basic-spotlight-items').css('height', $('.field-name-field-basic-spotlight-items').height());
+         // $('.field-name-field-basic-spotlight-items').css('overflow', 'hidden');
 
-       // Navigation is hidden by default, display it if JavaScript is enabled.
-       $('.panopoly-spotlight-buttons-wrapper').css('display', 'block');
-       
-       $('.panopoly-spotlight-pause-play').bind('click', function(event) {
-         event.preventDefault();
-         if ($(this).hasClass('paused')) {
-           $('.field-name-field-basic-spotlight-items').tabs().tabs("rotate", rotation_time, true);
-           $(this).text(Drupal.t('Pause'));
-           $(this).removeClass('paused');
-         } 
-         else {
-           $('.field-name-field-basic-spotlight-items').tabs().tabs("rotate", 0, false);
-           $('.field-name-field-basic-spotlight-items .ui-tabs-nav li a').attr('tabindex', 0);
-           $(this).text(Drupal.t('Play'));
-           $(this).addClass('paused');
-        }
+         // Navigation is hidden by default, display it if JavaScript is enabled.
+         $slides.find('.panopoly-spotlight-buttons-wrapper').css('display', 'block');
+
+         $slides.find('.panopoly-spotlight-pause-play').once('panopoly-spotlight').bind('click', function(event) {
+           event.preventDefault();
+           if ($(this).hasClass('paused')) {
+             $slides.tabs().tabs("rotate", rotation_time, true);
+             $(this).text(Drupal.t('Pause'));
+             $(this).removeClass('paused');
+           }
+           else {
+             $slides.tabs().tabs("rotate", 0, false);
+             $slides.find('.ui-tabs-nav li a').attr('tabindex', 0);
+             $(this).text(Drupal.t('Play'));
+             $(this).addClass('paused');
+           }
+         });
+         if ($slides.find('.panopoly-spotlight-previous').length && $slides.find('.panopoly-spotlight-next').length) {
+           $slides.find('.panopoly-spotlight-previous').once('panopoly-spotlight').bind('click', function (event) {
+             event.preventDefault();
+             $slides.find('.panopoly-spotlight-pause-play:not(.paused').trigger('click');
+             var activeControl = $($controls.filter('.ui-state-active'));
+
+             if (activeControl.prev().length != 0) {
+               activeControl.prev().children('a').trigger('click');
+             }
+             else {
+               $controls.last().children('a').trigger('click');
+             }
+           });
+           $slides.find('.panopoly-spotlight-next').once('panopoly-spotlight').bind('click', function (event) {
+             event.preventDefault();
+             $slides.find('.panopoly-spotlight-pause-play:not(.paused').trigger('click');
+             var activeControl = $($controls.filter('.ui-state-active'));
+
+             if (activeControl.next().length != 0) {
+               activeControl.next().children('a').trigger('click');
+             }
+             else {
+               $controls.first().children('a').trigger('click');
+             }
+           });
+         }
        });
      }
    }
- }
+ };
 
- /**
-  * Create responsive magic for Table Widget
-  */
- Drupal.behaviors.panopolyWidgetTables = {
-   attach: function (context, settings) {
-
-     $('table.tablefield', context).each(function() {
-       var table = $(this); // cache table object.
-       var head = table.find('thead th');
-       var rows = table.find('tbody tr').clone(); // appending afterwards does not break original table.
-
-       // create new table
-       var newtable = $(
-         '<table class="mobile-table">' +
-         '  <tbody>' +
-         '  </tbody>' +
-         '</table>'
-       );
-
-       // cache tbody where we'll be adding data.
-       var newtable_tbody = newtable.find('tbody');
-
-       rows.each(function(i) {
-         var cols = $(this).find('td');
-         var classname = i % 2 ? 'even' : 'odd';
-         cols.each(function(k) {
-           var new_tr = $('<tr class="' + classname + '"></tr>').appendTo(newtable_tbody);
-           new_tr.append(head.clone().get(k));
-           new_tr.append($(this));
-         });
-       });
-
-       $(this).after(newtable);
-     });
-
-   }
- }
 })(jQuery);

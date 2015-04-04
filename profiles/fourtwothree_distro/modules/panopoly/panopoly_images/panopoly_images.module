@@ -18,9 +18,16 @@ function panopoly_images_init() {
 function panopoly_images_media_wysiwyg_wysiwyg_allowed_view_modes_alter(&$options, $context) {
   if ($context->type == 'image') {
     // Relabel some options
-    $options['default']['label'] = t('Original Size');
-    $options['teaser']['label'] = t('Quarter Size');
-    $options['preview']['label'] = t('Thumbnail');
+    $labels = array(
+      'default' => t('Original Size'),
+      'teaser' => t('Quarter Size'),
+      'preview' => t('Thumbnail'),
+    );
+    foreach ($labels as $name => $label) {
+      if (isset($options[$name])) {
+        $options[$name]['label'] = $label;
+      }
+    }
   }
 }
 
@@ -116,6 +123,24 @@ function panopoly_images_file_default_displays_alter(&$file_displays) {
  * Implementation of hook_preprocess_image_style()
  */
 function panopoly_images_preprocess_image_style(&$variables) {
+  // Some modules are misusing the class attributes as string
+  // instead of array so make sure the format is correct.
+  // See #2181263.
+  if (isset($variables['attributes']['class']) && !is_array($variables['attributes']['class'])) {
+    $variables['attributes']['class'] = explode(' ', $variables['attributes']['class']);
+  }
+
+  if (!empty($variables['attributes']['class'])) {
+    $img_style_names = array_keys(image_styles());
+    $classes = array();
+    foreach ($variables['attributes']['class'] as $class) {
+      if (!in_array(str_replace('-', '_', $class), $img_style_names)) {
+        $classes[] = $class;
+      }
+    }
+    $variables['attributes']['class'] = $classes;
+  }
+
   $variables['attributes']['class'][] = str_replace('_', '-', $variables['style_name']);
 }
 

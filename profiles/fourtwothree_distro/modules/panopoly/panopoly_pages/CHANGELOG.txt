@@ -1,3 +1,42 @@
+Panopoly Pages 7.x-1.20, 2015-03-25
+----------------------------
+- SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'rid' cannot be
+  null.
+- CHANGELOG.txt updates for 1.19 went wrong.
+
+Panopoly Pages 7.x-1.19, 2015-03-19
+-----------------------------
+- Updated CHANGELOG.txt for 7.x-1.19 release.
+- Make "Landing Page" into node + Panelizer (rather than a Page Manager page)?.
+
+Panopoly Pages 7.x-1.18, 2015-02-26
+----------------------------
+- No changes since last release.
+
+Panopoly Pages 7.x-1.17, 2015-02-18
+----------------------------
+- No changes since last release.
+
+Panopoly Pages 7.x-1.16, 2015-02-12
+----------------------------
+- Have Panopoly Theme depend on Radix Layouts - forgot some layout changes.
+
+Panopoly Pages 7.x-1.15, 2015-01-12
+----------------------------
+- No changes since last release.
+
+Panopoly Pages 7.x-1.14, 2014-11-19
+----------------------------
+- Have Panopoly Theme depend on Radix Layouts (rather than providing it's own).
+
+Panopoly Pages 7.x-1.13, 2014-10-17
+----------------------------
+- No changes since last release.
+
+Panopoly Pages 7.x-1.12, 2014-10-15
+----------------------------
+- No changes since last release.
+
 Panopoly Pages 7.x-1.11, 2014-08-14
 ----------------------------
 - No changes since last release.

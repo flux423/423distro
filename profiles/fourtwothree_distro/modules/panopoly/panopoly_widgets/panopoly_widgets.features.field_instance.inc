@@ -31,7 +31,7 @@ function panopoly_widgets_field_default_field_instances() {
     'settings' => array(
       'description_field' => 0,
       'file_directory' => 'general',
-      'file_extensions' => 'pdf txt',
+      'file_extensions' => 'txt doc docx xls xlsx pdf ppt pptx pps ppsx odt ods odp',
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
@@ -274,6 +274,7 @@ function panopoly_widgets_field_default_field_instances() {
     'label' => 'Links',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -286,6 +287,7 @@ function panopoly_widgets_field_default_field_instances() {
       ),
       'enable_tokens' => 1,
       'title' => 'optional',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 128,
       'title_value' => '',
       'url' => 0,
@@ -298,6 +300,40 @@ function panopoly_widgets_field_default_field_instances() {
       'settings' => array(),
       'type' => 'link_field',
       'weight' => -4,
+    ),
+  );
+
+  // Exported field_instance: 'fieldable_panels_pane-spotlight-field_basic_spotlight_duration'
+  $field_instances['fieldable_panels_pane-spotlight-field_basic_spotlight_duration'] = array(
+    'bundle' => 'spotlight',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'fieldable_panels_pane',
+    'field_name' => 'field_basic_spotlight_duration',
+    'label' => 'Slide Duration',
+    'required' => 0,
+    'settings' => array(
+      'max' => 60,
+      'min' => 1,
+      'prefix' => '',
+      'suffix' => 'seconds',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 1,
     ),
   );
 
@@ -338,7 +374,41 @@ function panopoly_widgets_field_default_field_instances() {
       'module' => 'panopoly_widgets',
       'settings' => array(),
       'type' => 'panopoly_spotlight_form',
-      'weight' => -4,
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'fieldable_panels_pane-spotlight-field_basic_spotlight_pager'
+  $field_instances['fieldable_panels_pane-spotlight-field_basic_spotlight_pager'] = array(
+    'bundle' => 'spotlight',
+    'default_value' => array(
+      0 => array(
+        'value' => 'full',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'How would you like the pager to appear?',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'fieldable_panels_pane',
+    'field_name' => 'field_basic_spotlight_pager',
+    'label' => 'Pager Style',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 1,
     ),
   );
 
@@ -500,10 +570,13 @@ function panopoly_widgets_field_default_field_instances() {
   t('Address');
   t('Caption');
   t('File');
+  t('How would you like the pager to appear?');
   t('Image');
   t('Information');
   t('Items');
   t('Links');
+  t('Pager Style');
+  t('Slide Duration');
   t('Table');
   t('Text');
   t('The street address of the location you wish to map. This widget will contact Google and try to do its best to create a map!');

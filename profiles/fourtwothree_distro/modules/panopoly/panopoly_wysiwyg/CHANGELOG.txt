@@ -1,3 +1,44 @@
+Panopoly WYSIWYG 7.x-1.20, 2015-03-25
+------------------------------
+- CHANGELOG.txt updates for 1.19 went wrong.
+
+Panopoly WYSIWYG 7.x-1.19, 2015-03-19
+-------------------------------
+- Updated CHANGELOG.txt for 7.x-1.19 release.
+- Livepreview.feature is super slow.
+
+Panopoly WYSIWYG 7.x-1.18, 2015-02-26
+------------------------------
+- No changes since last release.
+
+Panopoly WYSIWYG 7.x-1.17, 2015-02-18
+------------------------------
+- No changes since last release.
+
+Panopoly WYSIWYG 7.x-1.16, 2015-02-12
+------------------------------
+- Makefile downloads master of markitup library instead of tag/hash.
+- @ rule for wysiwyg_filter needs to come first, rather than last.
+
+Panopoly WYSIWYG 7.x-1.15, 2015-01-15
+------------------------------
+- Updated LinkIt module to 3.3 version.
+
+Panopoly WYSIWYG 7.x-1.14, 2014-11-19
+------------------------------
+- Fixed Kitchen Sink WYSIWYG plug-in breaks non-panopoly_wysiwyg input format editors (using CKEditor).
+
+Panopoly WYSIWYG 7.x-1.13, 2014-10-17
+------------------------------
+- No changes since last release.
+
+Panopoly WYSIWYG 7.x-1.12, 2014-10-15
+------------------------------
+- Added Upgrade linkit module 3.1+.
+- Fixed Kitchen Sink WYSIWYG plug-in breaks non-panopoly_wysiwyg input format editors.
+- Fixed Error notice after overriding WYSIWYG feature.
+- Add WYSIWYG Patch #934976 to Panopoly (Allows for hiding input format fields).
+
 Panopoly WYSIWYG 7.x-1.11, 2014-08-14
 ------------------------------
 - No changes since last release.

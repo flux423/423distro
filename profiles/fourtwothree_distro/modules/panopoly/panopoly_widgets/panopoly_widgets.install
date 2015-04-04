@@ -120,7 +120,10 @@ function panopoly_widgets_update_7001(&$sandbox) {
 function panopoly_widgets_update_7002(&$sandbox) {
   module_load_include('inc', 'features', 'features.export');
   features_include();
-  features_revert(array('panopoly_widgets' => array('field')));
+  // Need to give both the old Features 1.0 'field' component, and the new
+  // Features 2.0 'field_base' and 'field_instance' because we can't be sure of
+  // the version the user is upgrading to.
+  features_revert(array('panopoly_widgets' => array('field', 'field_base', 'field_instance')));
 }
 
 /**
@@ -129,20 +132,39 @@ function panopoly_widgets_update_7002(&$sandbox) {
  * Move video mediafield data into a file field.
  */
 function panopoly_widgets_update_7003(&$sandbox) {
-  $results = entity_load('fieldable_panels_pane');
-  foreach ($results as $entity) {
-    foreach ($entity->field_video_video[LANGUAGE_NONE] as $f) {
-      $entity->field_video_file[LANGUAGE_NONE][] = array(
-        'fid' => $f['fid'],
-        'display' => 1,
-      );
+  // Move data from 'field_video_video' to 'field_video_file' directly in the
+  // database, so don't have to worry about APIs changing over time.
+  $tables = array(
+    'field_data_field_video_video' => 'field_data_field_video_file',
+    'field_revision_field_video_video' => 'field_revision_field_video_file',
+  );
+  $fields = array(
+    'entity_type',
+    'bundle',
+    'deleted',
+    'entity_id',
+    'revision_id',
+    'language',
+    'delta',
+    'field_video_video_fid',
+  );
+  foreach ($tables as $old_table => $new_table) {
+    $result = db_select($old_table, 'f')
+      ->fields('f', $fields)
+      ->execute();
+    foreach ($result as $data) {
+      $data = (array)$data;
+      $data['field_video_file_display'] = 1;
+      $data['field_video_file_fid'] = $data['field_video_video_fid'];
+      unset($data['field_video_video_fid']);
+
+      db_insert($new_table)
+        ->fields($data)
+        ->execute();
     }
-    $form_state['entity'] = $entity;
-    $form_state['values'] = (array) $entity;
-    $form_state['values']['link'] = ($form_state['values']['link'] == 0) ? NULL : $form_state['values']['link'];
-    $form_state['values']['reusable'] = ($$form_state['values']['reusable'] == 0) ? NULL : $form_state['values']['reusable'];
-    drupal_form_submit('fieldable_panels_panes_entity_edit_form', $form_state);
   }
+
+  // Finally, delete the field.
   field_delete_field('field_video_video');
 }
 
@@ -224,6 +246,82 @@ function panopoly_widgets_update_7007(&$sandbox) {
   $data_table_name = 'field_data_field_basic_spotlight_items';
   $revision_table_name = 'field_revision_field_basic_spotlight_items';
   $field_name = 'field_basic_spotlight_items_alt';
-  db_add_field($data_table_name, $field_name, $spec);
-  db_add_field($revision_table_name, $field_name, $spec);
+  if (!db_field_exists($data_table_name, $field_name)) {
+    db_add_field($data_table_name, $field_name, $spec);
+  }
+  if (!db_field_exists($revision_table_name, $field_name)) {
+    db_add_field($revision_table_name, $field_name, $spec);
+  }
+}
+
+/**
+ * Setup the default for 'access media browser' permission.
+ */
+function panopoly_widgets_update_7008() {
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access media browser'));
+}
+
+/**
+ * Make sure the new 'field_basic_spotlight_duration' gets created.
+ */
+function panopoly_widgets_update_7009() {
+  features_revert(array('panopoly_widgets' => array('field_base', 'field_instance')));
+}
+
+/**
+ * Make sure the new 'field_basic_spotlight_pager' field gets created.
+ */
+function panopoly_widgets_update_7010() {
+  features_revert(array('panopoly_widgets' => array('field_base', 'field_instance')));
+}
+
+/**
+ * Update the allowed file extensions in File widgets.
+ */
+function panopoly_widgets_update_7011() {
+  if ($file_instance = field_info_instance('fieldable_panels_pane', 'field_basic_file_file', 'basic_file')) {
+    // If the file extensions match the old default, then we set them to the new default.
+    if ($file_instance['settings']['file_extensions'] == 'pdf txt') {
+      $file_instance['settings']['file_extensions'] = PANOPOLY_WIDGETS_FILE_EXTENSIONS_DEFAULT;
+      field_update_instance($file_instance);
+    }
+  }
+}
+
+/**
+ * Update 'Content item' widgets to reference NID rather than title.
+ */
+function panopoly_widgets_update_7012() {
+  // Make sure the View for the 'Content item' widget gets updated.
+  features_revert(array('panopoly_widgets' => array('views_view')));
+  views_invalidate_cache();
+
+  // Go through existing panes and update configuration.
+  // We're going to load the panes directly from the 'panels_pane' table and
+  // replace them with the new pane, reusing the same IDs and everything.
+  // Don't try this at home, kids!
+  $result = db_query("SELECT * FROM {panels_pane} WHERE type = 'views_panes' AND subtype = 'panopoly_widgets_general_content-piece_of_content'");
+  $serialized_fields = array('access', 'configuration', 'cache', 'style', 'css', 'extras', 'locks');
+  foreach ($result as $pane) {
+    // Unserialize all the serialized fields.
+    foreach ($serialized_fields as $field) {
+      $pane->$field = unserialize($pane->$field);
+    }
+
+    // Load the node using the View, set the NID and clear out the title.
+    $exposed =& $pane->configuration['exposed'];
+    $view = views_get_view('panopoly_widgets_general_content');
+    $view->set_display('piece_of_content');
+    $view->set_exposed_input($exposed);
+    $view->pre_execute();
+    $view->execute($view->current_display);
+    $view->post_execute();
+    if (count($view->result) > 0) {
+      $exposed['nid'] = $view->result[0]->nid;
+      $exposed['title'] = '';
+
+      // Write back to the database.
+      drupal_write_record('panels_pane', $pane, array('pid'));
+    }
+  }
 }

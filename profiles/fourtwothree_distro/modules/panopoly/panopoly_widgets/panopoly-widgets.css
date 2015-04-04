@@ -4,7 +4,7 @@ body.page-media-browser {
 }
 
 /* Map Widget */
-div.pane-bundle-map {
+div.pane-bundle-map .pane-content {
   overflow: hidden;
 }
 
@@ -48,55 +48,10 @@ div.pane-bundle-video .media-youtube-video embed {
 }
 
 /* Table Widget */
-table.mobile-table { 
-  display: none;
-}
-
 #modalContent .tablefield-row-0 {
   background-color: rgba(0, 0, 0, 0.51);
   color: #ffffff;
   font-weight: bold;
-}
-
-/* Table Widget - Responsive */
-@media only screen and (max-width: 480px) {
-
-  table.tablefield {
-    display: none;
-  }
-
-  table.mobile-table {
-    display: block;
-  }
-
-  table {
-    margin: 50px;
-  }
-
-  td, th {
-    padding: 10px;
-    text-align: left;
-  }
-
-  .mobile-table tbody tr:nth-child(odd) {
-    background: #eee;
-  }
-
-  .mobile-table tr {
-    width: 50%;
-  }
-
-  .mobile-table tr.even th,
-  .mobile-table tr.even {
-    color: #000;
-    background: #fff;
-  }
-
-  .mobile-table tr.odd th,
-  .mobile-table tr.odd {
-    color: #000;
-    background: #eee;
-  }
 }
 
 /* Spotlight Widget - General Components */
@@ -130,7 +85,7 @@ table.mobile-table {
 .pane-bundle-spotlight .panopoly-spotlight-wrapper h2 { margin: 0; }
 .pane-bundle-spotlight .panopoly-spotlight-wrapper h2 a { text-decoration: none; color: #FFFFFF; }
 .pane-bundle-spotlight .panopoly-spotlight-wrapper p { font-size: .8em; margin: 0; line-height: 1.2em; margin-top: 5px; }
-.pane-bundle-spotlight .panopoly-spotlight-label { background-color: #FFF; width: 200px; max-width: 50%; opacity: .75; }
+.pane-bundle-spotlight .panopoly-spotlight-label { background-color: #FFF; width: 75%; max-width: 85%; opacity: .75; }
 .pane-bundle-spotlight .panopoly-spotlight-label { padding: .3em .7em; margin: 0px; }
 .pane-bundle-spotlight .panopoly-spotlight-info { padding: .7em; background-color: #000000; color: #FFFFFF; opacity: .75; }
 .pane-bundle-spotlight .ui-tabs .ui-tabs-nav li.ui-state-default { background: none; background-color: #000; opacity: .75; border: 1px solid #000000 !important; border-top-left-radius: 0px; border-top-right-radius: 0px; }

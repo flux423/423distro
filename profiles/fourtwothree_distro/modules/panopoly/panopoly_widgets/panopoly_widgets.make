@@ -7,7 +7,6 @@ core = 7.x
 
 projects[tablefield][version] = 2.3
 projects[tablefield][subdir] = contrib
-projects[tablefield][patch][2050657] = "http://drupal.org/files/tablefield_event_click_conflict.patch"
 
 projects[simple_gmap][version] = 1.2
 projects[simple_gmap][subdir] = contrib
@@ -16,6 +15,7 @@ projects[simple_gmap][subdir] = contrib
 
 projects[menu_block][version] = 2.4
 projects[menu_block][subdir] = contrib
+projects[menu_block][patch][2418803] = https://www.drupal.org/files/issues/menu_block-ctools-1.6-2418803-2.patch
 
 ; Panopoly - Contrib - Files & Media
 
@@ -40,5 +40,6 @@ projects[media_youtube][download][type] = git
 projects[media_youtube][download][revision] = d0377b3
 projects[media_youtube][download][branch] = 7.x-2.x
 
-projects[media_vimeo][version] = 2.0-rc1
+projects[media_vimeo][version] = 2.0
 projects[media_vimeo][subdir] = contrib
+projects[media_vimeo][patch][2446199] = https://www.drupal.org/files/issues/no_exception_handling-2446199-1.patch

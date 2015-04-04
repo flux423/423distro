@@ -32,19 +32,6 @@ function panopoly_core_apps_app_info() {
 }
 
 /**
- * Implemenets hook_page_build().
- */
-function panopoly_core_page_build(&$page) {
-  // This fixes a bug that causes @font-face declarations to break in IE6-8.
-  // @see http://www.smashingmagazine.com/2012/07/11/avoiding-faux-weights-styles-...
-  $path = drupal_get_path('module', 'panopoly_core');
-  drupal_add_css($path . '/css/panopoly-fonts-ie-open-sans.css', array('group' => CSS_THEME, 'every_page' => TRUE, 'browsers' => array('IE' => 'lte IE 8', '!IE' => FALSE), 'preprocess' => FALSE));
-  drupal_add_css($path . '/css/panopoly-fonts-ie-open-sans-bold.css', array('group' => CSS_THEME, 'every_page' => TRUE, 'browsers' => array('IE' => 'lte IE 8', '!IE' => FALSE), 'preprocess' => FALSE));
-  drupal_add_css($path . '/css/panopoly-fonts-ie-open-sans-italic.css', array('group' => CSS_THEME, 'every_page' => TRUE, 'browsers' => array('IE' => 'lte IE 8', '!IE' => FALSE), 'preprocess' => FALSE));
-  drupal_add_css($path . '/css/panopoly-fonts-ie-open-sans-bold-italic.css', array('group' => CSS_THEME, 'every_page' => TRUE, 'browsers' => array('IE' => 'lte IE 8', '!IE' => FALSE), 'preprocess' => FALSE));
-}
-
-/**
  * Configuration Form for Panopoly Core
  */
 function panopoly_core_configure_form($form, &$form_state) {
@@ -240,6 +227,10 @@ function _panopoly_core_import_demo_content($classes = array()) {
 
   // Process the migrations to import demo content.
   foreach ($classes as $class) {
+    // Register the Migration class since auto-registration is not supported
+    // since Migrate module version 2.6
+    Migration::registerMigration($class);
+
     // Get a handle on our migration class.
     $migration = Migration::getInstance($class);
 
@@ -267,11 +258,9 @@ function _panopoly_core_rollback_demo_content($classes = array()) {
 
     // Roll back the migration.
     $migration->processRollback();
-  }
 
-  // deregister the Migration classes since it will not exist after the
-  // module is disabled.
-  foreach ($classes as $class) {
+    // deregister the Migration classes since it will not exist after the
+    // module is disabled.
     Migration::deregisterMigration($class);
   }
 }

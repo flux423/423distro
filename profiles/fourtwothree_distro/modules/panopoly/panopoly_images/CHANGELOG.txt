@@ -1,3 +1,40 @@
+Panopoly Images 7.x-1.20, 2015-03-25
+-----------------------------
+- CHANGELOG.txt updates for 1.19 went wrong.
+
+Panopoly Images 7.x-1.19, 2015-03-19
+------------------------------
+- Updated CHANGELOG.txt for 7.x-1.19 release.
+- Relabeled view modes baffles.
+
+Panopoly Images 7.x-1.18, 2015-02-26
+-----------------------------
+- Panopoly CSS causes issues with WYSIWYG image because of image style class names.
+
+Panopoly Images 7.x-1.17, 2015-02-18
+-----------------------------
+- HP Fatal error:  [] operator not supported for strings in panopoly_images/panopoly_images.module on line 90.
+
+Panopoly Images 7.x-1.16, 2015-02-12
+-----------------------------
+- No changes since last release.
+
+Panopoly Images 7.x-1.15, 2015-01-12
+-----------------------------
+- No changes since last release.
+
+Panopoly Images 7.x-1.14, 2014-11-19
+-----------------------------
+- No changes since last release.
+
+Panopoly Images 7.x-1.13, 2014-10-17
+-----------------------------
+- No changes since last release.
+
+Panopoly Images 7.x-1.12, 2014-10-15
+-----------------------------
+- No changes since last release.
+
 Panopoly Images 7.x-1.11, 2014-08-14
 -----------------------------
 - No changes since last release.
