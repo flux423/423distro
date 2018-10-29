@@ -125,25 +125,26 @@ projects[xmlsitemap][subdir] = 423contrib
 
 
 ;Patches
-;from https://www.drupal.org/node/2225315
-projects[entity_rules][patch][] = "https://www.drupal.org/files/issues/entity_rules_entity_rules_get_form_entity_type_settings.patch" 
+#from https://www.drupal.org/node/2225315
+projects[entity_rules][patch][] = "https://www.drupal.org/files/issues/entity_rules_entity_rules_get_form_entity_type_settings.patch"
 
-;from https://www.drupal.org/node/2201263
-projects[entity_rules][patch][] = "https://www.drupal.org/files/issues/entity_rules_entity_rules_get_type_settings.patch" 
+#from https://www.drupal.org/node/2201263
+projects[entity_rules][patch][] = "https://www.drupal.org/files/issues/entity_rules_entity_rules_get_type_settings.patch"
 
-;from
-projects[views][patch][] = "https://www.drupal.org/files/issues/views-asset-diff-2018737-37.patch"
+#from https://www.drupal.org/node/2163545
+projects[superfish][patch][2163545] = "https://drupal.org/files/issues/superfish-drush_make_master-2163545-2.patch"
 
-;from https://www.drupal.org/node/2163545
-projects[superfish][patch][2163545] = https://drupal.org/files/issues/superfish-drush_make_master-2163545-2.patch
+projects[defaultconfig][patch][13] = "https://www.drupal.org/files/issues/1900574.defaultconfig.undefinedindex_13.patch"
+#https://www.drupal.org/node/1900574
+projects[entity][patch][] = "https://www.drupal.org/files/issues/entity-1312374-42-fatal-error-if-missing-property-callback.patch"
 
-projects[defaultconfig][patch][] =
-"https://www.drupal.org/files/issues/1900574.defaultconfig.undefinedindex_13.patch"
-;https://www.drupal.org/node/1900574
-
-projects[views][patch][] = https://www.drupal.org/files/views-fix-destination-link-for-ajax-1036962-29.patch
-;https://www.drupal.org/node/1036962#comment-6665274
 
 ; Themes
 projects[adaptivetheme][version] = 3.x
 projects[adaptivetheme][type] = theme
+
+; Include Theme
+projects[at_423client][type] = theme
+projects[at_423client][download][type] = git
+projects[at_423client][download][contrib_destination] = sites/all/themes
+projects[at_423client][download][url] = https://github.com/flux423/at_423client.git
